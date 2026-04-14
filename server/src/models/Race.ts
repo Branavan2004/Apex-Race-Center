@@ -51,7 +51,7 @@ const RaceSchema = new Schema<IRaceDocument>({
   timestamps: true,
   toJSON: {
     virtuals: true,
-    transform: (_, ret) => {
+    transform: (_, ret: any) => {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;

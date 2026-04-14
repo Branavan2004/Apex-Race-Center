@@ -1,21 +1,18 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+import { RaceController } from '../../controllers/race.controller';
 
 const router = Router();
 
-const RACE_DATA = {
-  name: 'British Grand Prix',
-  track: 'Silverstone Circuit',
-  distance: '5.891 km',
-  laps: 52,
-  weather: {
-    temp: 24,
-    condition: 'Dry',
-    humidity: 45
-  }
-};
+// GET /api/v1/race/
+router.get('/', RaceController.getAllRaces);
 
-router.get('/current', (req: Request, res: Response) => {
-  res.json(RACE_DATA);
-});
+// GET /api/v1/race/:id
+router.get('/:id', RaceController.getRaceById);
+
+// GET /api/v1/race/:id/drivers
+router.get('/:id/drivers', RaceController.getDrivers);
+
+// GET /api/v1/race/:id/laptimes
+router.get('/:id/laptimes', RaceController.getLapTimes);
 
 export default router;
