@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #050505;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-surface border border-muted rounded-lg overflow-hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .neon-border {
+    @apply border-accent shadow-[0_0_10px_rgba(0,210,190,0.3)];
+  }
+
+  .stat-label {
+    @apply text-text-dim text-xs uppercase tracking-widest font-semibold;
+  }
+
+  .stat-value {
+    @apply text-xl font-bold font-mono;
+  }
+}
+
+/* Custom scrollbar for data-heavy views */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
